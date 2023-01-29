@@ -7,6 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'dark': '#2D3142',
+      'light': '#bfc0c0',
+      'white': '#ffffff',
+      'alert': '#f25f5c',
+      'primary': '#488b49',
   },
   plugins: [],
+}
 }
