@@ -30,9 +30,10 @@ const Details = ({ podcast }) => {
   return (
     <div>
       <h1>{podcast.title}</h1>
-      {/* <p>{podcast.description}</p> */}
-      {/* <p>{podcast.season}</p> */}
-      {/* <p>{podcast.genre}</p> */}
+      <p>{podcast.description}</p>
+      <img src={podcast.image}></img>
+       <p>Amount of episodes per season</p>
+       <p>{podcast.updated}</p>
     </div>
   );
 };

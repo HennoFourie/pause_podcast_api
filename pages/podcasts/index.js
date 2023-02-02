@@ -22,8 +22,11 @@ const Podcasts = ({ podcasts }) => {
             legacyBehavior
           >
             <div>
-            <h3>{podcast.title}</h3>
             <img src={podcast.image}></img>
+            <h3>{podcast.title}</h3>
+            <p>Seasons {podcast.seasons}</p>
+            <p>{podcast.updated}</p>
+            <p>#{podcast.genres}</p>
             </div>
           </Link>
         ))}
