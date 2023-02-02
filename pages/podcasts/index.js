@@ -13,24 +13,22 @@ export const getStaticProps = async () => {
 }
 
 const Podcasts = ({ podcasts }) => {
-    return (
-        <>
-            <div>
-            {podcasts.map((podcasts) =>(
-                <Link href={'/podcasts/' + podcasts.id} key={podcasts.id}>
-                    <a>
-                        <h3>{podcasts.title}</h3>
-                        <p>{podcasts.description}</p>
-                        <p>{podcasts.season}</p>
-                        <img src={podcasts.image}></img>
-                        <p>{podcasts.genres}</p>
-                        <p>{podcasts.updated}</p>
-                    </a>
-                </Link>
-                ))}
-            </div>
-        </>
-    )
+    return <>
+        <div>
+        {podcasts.map((podcasts) =>(
+            (<Link href={'/podcasts/' + podcasts.id} key={podcasts.id}>
+
+                <h3>{podcasts.title}</h3>
+                <p>{podcasts.description}</p>
+                <p>{podcasts.season}</p>
+                <img src={podcasts.image}></img>
+                <p>{podcasts.genres}</p>
+                <p>{podcasts.updated}</p>
+
+            </Link>)
+            ))}
+        </div>
+    </>;
 }
 
 export default Podcasts
