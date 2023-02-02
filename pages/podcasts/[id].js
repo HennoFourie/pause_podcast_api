@@ -1,25 +1,40 @@
 export const getStaticPaths = async () => {
-    const response = await fetch('https://podcast-api.netlify.app/')
-    const data = await response.json()
+  const response = await fetch("https://podcast-api.netlify.app");
+  const data = await response.json();
 
-    const paths = data.map(podcasts => {
-        return {
-            params: { id: podcasts.id.toString() }
-        }
-    })
-    
+  const paths = data.map((podcast) => {
     return {
-        paths,
-        fallback: false
-    }
-}
+      params: { id: podcast.id.toString() },
+    };
+  });
 
-const Details = () => {
-    return (
-        <div>
-            <h1>Details Page</h1>
-        </div>
-    )
-}
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
-export default Details
+export const getStaticProps = async (context) => {
+  const id = context.params.id;
+  const response = await fetch("https://podcast-api.netlify.app/" + id);
+  const data = await response.json();
+
+  return {
+    props: {
+      podcast: data,
+    },
+  };
+};
+
+const Details = ({ podcast }) => {
+  return (
+    <div>
+      <h1>{podcast.title}</h1>
+      {/* <p>{podcast.description}</p> */}
+      {/* <p>{podcast.season}</p> */}
+      {/* <p>{podcast.genre}</p> */}
+    </div>
+  );
+};
+
+export default Details;

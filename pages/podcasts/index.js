@@ -1,34 +1,35 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export const getStaticProps = async () => {
+  const response = await fetch("https://podcast-api.netlify.app");
+  const data = await response.json();
 
-    const response = await fetch('https://podcast-api.netlify.app/')
-    const data = await response.json()
-
-    return {
-        props: {
-            podcasts: data
-        }  
-    }
-}
+  return {
+    props: {
+      podcasts: data,
+    },
+  };
+};
 
 const Podcasts = ({ podcasts }) => {
-    return <>
-        <div>
-        {podcasts.map((podcasts) =>(
-            (<Link href={'/podcasts/' + podcasts.id} key={podcasts.id} legacyBehavior>
+  return (
+    <>
+      <div>
+        {podcasts.map((podcast) => (
+          <Link
+            href={"/podcasts/" + podcast.id}
+            key={podcast.id}
+            legacyBehavior
+          >
+            <div>
+            <h3>{podcast.title}</h3>
+            <img src={podcast.image}></img>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </>
+  );
+};
 
-                <h3>{podcasts.title}</h3>
-                <p>{podcasts.description}</p>
-                <p>{podcasts.season}</p>
-                <img src={podcasts.image}></img>
-                <p>{podcasts.genres}</p>
-                <p>{podcasts.updated}</p>
-
-            </Link>)
-            ))}
-        </div>
-    </>;
-}
-
-export default Podcasts
+export default Podcasts;
