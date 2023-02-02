@@ -16,7 +16,7 @@ const Podcasts = ({ podcasts }) => {
     return <>
         <div>
         {podcasts.map((podcasts) =>(
-            (<Link href={'/podcasts/' + podcasts.id} key={podcasts.id}>
+            (<Link href={'/podcasts/' + podcasts.id} key={podcasts.id} legacyBehavior>
 
                 <h3>{podcasts.title}</h3>
                 <p>{podcasts.description}</p>
