@@ -3,28 +3,6 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Avatar from "./Avatar";
 import styled from "@emotion/styled";
 
-const Label = styled.div`
-  display: block;
-  margin: 5px 0;
-  color: var(--custom-color-secondary);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-`
-
-const Input = styled.div`
-  width: 100%;
-  border-radius: 5px;
-  border: var(--custom-border);
-  padding: 8px;
-  font-size: 0.9rem;
-  background-color: var(--custom-bg-color);
-  color: var(--custom-color);
-
-  :disabled {
-    color: var(--custom-color-secondary);
-  }
-`
-
 export default function Account({ session }) {
   const supabase = useSupabaseClient();
   const user = useUser();
@@ -53,7 +31,7 @@ export default function Account({ session }) {
 
       if (data) {
         setUsername(data.username);
-        setFullname(data.Fullname);
+        setFullname(data.fullname);
         setAvatarUrl(data.avatar_url);
       }
     } catch (error) {
@@ -99,12 +77,12 @@ export default function Account({ session }) {
         }}
       />
       <div>
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" type="text" value={session.user.email} disabled />
+        <label htmlFor="email">Email</label>
+        <input id="email" type="text" value={session.user.email} disabled />
       </div>
       <div>
-        <Label htmlFor="username">Username</Label>
-        <Input
+        <label htmlFor="username">Username</label>
+        <input
           id="username"
           type="text"
           value={username || ""}
@@ -112,8 +90,8 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <Label htmlFor="fullname">Full Name</Label>
-        <Input
+        <label htmlFor="fullname">Full Name</label>
+        <input
           id="fullname"
           type="text"
           value={fullname || ""}
