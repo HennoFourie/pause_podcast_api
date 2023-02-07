@@ -1,9 +1,9 @@
-import { HomeIcon, SearchIcon, LibraryIcon, PlusCircleIcon, HeartIcon } from '@heroicons/react/outline'
+import { HomeIcon, SearchIcon, LibraryIcon, PlusCircleIcon, HeartIcon, UserCircleIcon } from '@heroicons/react/outline'
 
 function Sidebar() {
     return (
         <div className='text-gray-500 p-5 text-sm border-r border-gray-900'>
-            <div className='space-y-4'>
+            <div className='space-y-3'>
                 <button className='flex items-center space-x-2 hover:text-white'>
                     <HomeIcon className="h-5 w-5" />
                     <p>Home</p>
