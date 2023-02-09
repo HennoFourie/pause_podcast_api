@@ -2,14 +2,15 @@ import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Head from "next/head";
 import Sidebar from "../components/Sidebar";
-import Account from "../components/Account";
+import Center from "../components/Center";
+// import Account from "../components/Account";
 
 const Home = () => {
   const session = useSession();
   const supabase = useSupabaseClient();
 
   return (
-    <div className='bg-dark h-screen overflow-hidden'>
+    <div className='bg-light h-screen overflow-hidden'>
       <Head>
         <title>Pause</title>
         <link
@@ -67,14 +68,15 @@ const Home = () => {
       ) : (
         <>
 
-            <main>
+            <main className="flex">
               <Sidebar />
-              {/* Center */}
+              <Center session={session}/>
+              {/* <Account session={session} /> */}
             </main>
 
             <div>{/* Player */}</div>
 
-            <Account session={session} />
+            
         </>
       )}
     </div>

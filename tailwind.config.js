@@ -11,11 +11,13 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       'dark': '#2D3142',
-      'light': '#bfc0c0',
+      'light': '#586A6A',
       'white': '#ffffff',
       'alert': '#f25f5c',
       'primary': '#488b49',
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
 }

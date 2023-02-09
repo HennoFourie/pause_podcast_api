@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import { useState } from "react";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider, Session } from "@supabase/auth-helpers-react";
+import { RecoilRoot } from "recoil";
 import { AppProps } from "next/app";
 
 function MyApp({
@@ -17,7 +18,9 @@ function MyApp({
       supabaseClient={supabase}
       initialSession={pageProps.initialSession}
     >
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <Component {...pageProps} />
+      </RecoilRoot>
     </SessionContextProvider>
   );
 }
